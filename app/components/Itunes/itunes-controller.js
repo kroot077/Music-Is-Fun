@@ -4,14 +4,28 @@ import ItunesService from "./itunes-service.js";
 
 const itunesService = new ItunesService()
 
-function drawSongs(results) {
+export default function drawSongs(results) {
   console.log(results)
   //YOUR CODING STARTS HERE
+  let songRslt = ItunesService.getMusicByArtist();
 
-
+  let onHtm = '';
+  for (let i = 0; i <= 50 ; i++) {
+    const song = songRslt[i];
+    onHtm += `
+          <div class="song-entry col-sm-3" onclick="">
+            <h2>{$song.trackName}</h2>
+            <h2>{$song.collectionPrice}</h2>
+            <img src="${song.albumArt}" alt="">
+            <h3>Artist: {$song.artistName}</h3>
+            <h3>Album: {$song.collectionName}</h3>
+            <h3>{$song.previewUrl}</h3>
+          </div>
+          `
+  }
 
 }
-
+ 
 
 //PUBLIC
 class ItunesController {
@@ -30,6 +44,3 @@ class ItunesController {
 
 
 }
-
-
-export default ItunesController

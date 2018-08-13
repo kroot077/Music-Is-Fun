@@ -7,4 +7,4 @@ export default class Song {
         this.price = song.collectionPrice
         this.preview = song.previewUrl
     }
-}
+} 
