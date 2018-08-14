@@ -8,12 +8,12 @@ export default function drawSongs(results) {
   console.log(results)
   //YOUR CODING STARTS HERE
   let songRslt = ItunesService.getMusicByArtist();
+  let template = ``;
 
-  let onHtm = '';
   for (let i = 0; i <= 50 ; i++) {
     const song = songRslt[i];
-    onHtm += `
-          <div class="song-entry col-sm-3" onclick="">
+    template += `
+          <div class="song-entry col-sm-3">
             <h2>{$song.trackName}</h2>
             <h2>{$song.collectionPrice}</h2>
             <img src="${song.albumArt}" alt="">
